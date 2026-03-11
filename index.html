@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madhav S R — QA Engineer & Cloud Learner</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B1628;
+    --navy2: #122040;
+    --blue: #1A4FBF;
+    --cyan: #00C2FF;
+    --cyan2: #5DE0FF;
+    --white: #F4F7FF;
+    --gray: #8A9BBE;
+    --card: #0F1E38;
+    --card2: #162846;
+    --green: #00D68F;
+    --amber: #FFB547;
+    --border: rgba(0,194,255,0.15);
+  }
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* ─── BACKGROUND ─── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 10%, rgba(26,79,191,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 80%, rgba(0,194,255,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 50% 50%, rgba(0,214,143,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* grid dots overlay */
+  body::after {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background-image: radial-gradient(circle, rgba(0,194,255,0.08) 1px, transparent 1px);
+    background-size: 36px 36px;
+    pointer-events: none;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 60px;
+    background: rgba(11,22,40,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1.25rem;
+    color: var(--cyan);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--gray); text-decoration: none;
+    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--cyan); }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative; z-index: 1;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 60px 80px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .hero-inner { max-width: 700px; }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,194,255,0.08);
+    border: 1px solid rgba(0,194,255,0.25);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 0.8rem; font-weight: 500; color: var(--cyan);
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-tag span { width: 6px; height: 6px; border-radius: 50%; background: var(--cyan); display: block; animation: pulse 2s infinite; }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  h1 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    margin-top: 24px;
+    font-size: 1.1rem; color: var(--gray); line-height: 1.7; font-weight: 300;
+    max-width: 520px;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-chips {
+    display: flex; flex-wrap: wrap; gap: 10px;
+    margin-top: 32px;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .chip {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 100px; padding: 7px 16px;
+    font-size: 0.82rem; color: var(--white); font-weight: 500;
+  }
+  .chip.green { border-color: rgba(0,214,143,0.3); color: var(--green); }
+  .chip.amber { border-color: rgba(255,181,71,0.3); color: var(--amber); }
+
+  .hero-ctas {
+    display: flex; gap: 14px; flex-wrap: wrap;
+    margin-top: 40px;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--cyan), var(--blue));
+    color: var(--navy); font-weight: 700; font-size: 0.9rem;
+    padding: 14px 28px; border-radius: 10px;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,194,255,0.3); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(0,194,255,0.35);
+    color: var(--cyan); font-weight: 500; font-size: 0.9rem;
+    padding: 14px 28px; border-radius: 10px;
+    text-decoration: none; cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-outline:hover { background: rgba(0,194,255,0.08); transform: translateY(-2px); }
+
+  /* floating card */
+  .hero-float {
+    position: absolute; right: 60px; top: 50%;
+    transform: translateY(-50%);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 32px;
+    width: 280px;
+    animation: fadeUp 0.7s 0.5s ease both;
+    display: none;
+  }
+  @media(min-width:1100px){ .hero-float { display: block; } }
+  .float-stat { text-align: center; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .float-stat:last-child { border-bottom: none; }
+  .float-num { font-family: 'Syne', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--cyan); }
+  .float-label { font-size: 0.8rem; color: var(--gray); margin-top: 2px; }
+
+  /* ─── SECTIONS ─── */
+  section {
+    position: relative; z-index: 1;
+    max-width: 1100px; margin: 0 auto;
+    padding: 90px 60px;
+  }
+  .section-tag {
+    font-size: 0.78rem; font-weight: 600;
+    color: var(--cyan); letter-spacing: 0.12em;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800; line-height: 1.1;
+    margin-bottom: 48px;
+  }
+
+  /* ─── STATS STRIP ─── */
+  .stats-strip {
+    position: relative; z-index: 1;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stats-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4,1fr);
+    padding: 0 60px;
+  }
+  .stat-item {
+    padding: 40px 24px;
+    border-right: 1px solid var(--border);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 2.8rem; font-weight: 800; color: var(--cyan); }
+  .stat-lbl { font-size: 0.85rem; color: var(--gray); margin-top: 4px; }
+
+  /* ─── SKILLS ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 20px;
+  }
+  .skill-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .skill-card:hover { transform: translateY(-4px); border-color: rgba(0,194,255,0.4); }
+  .skill-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 16px;
+  }
+  .skill-card h3 {
+    font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .skill-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .skill-tag {
+    background: rgba(0,194,255,0.07); border: 1px solid rgba(0,194,255,0.15);
+    border-radius: 6px; padding: 3px 10px;
+    font-size: 0.75rem; color: var(--cyan);
+  }
+
+  /* ─── AWS GRID ─── */
+  .aws-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+    gap: 16px;
+  }
+  .aws-card {
+    background: var(--card2);
+    border: 1px solid rgba(0,214,143,0.12);
+    border-radius: 14px; padding: 22px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .aws-card:hover { transform: translateY(-3px); border-color: rgba(0,214,143,0.35); }
+  .aws-badge {
+    display: inline-block;
+    background: rgba(0,214,143,0.12);
+    border-radius: 8px; padding: 5px 10px;
+    font-size: 0.75rem; font-weight: 600;
+    color: var(--green); margin-bottom: 12px;
+    letter-spacing: 0.04em;
+  }
+  .aws-card h4 { font-family: 'Syne', sans-serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; }
+  .aws-card p { font-size: 0.82rem; color: var(--gray); line-height: 1.6; }
+
+  /* ─── EXPERIENCE ─── */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .timeline-item {
+    display: grid; grid-template-columns: 160px 1fr;
+    gap: 0 40px;
+    position: relative;
+    padding-bottom: 50px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .tl-left { text-align: right; padding-top: 4px; }
+  .tl-date {
+    font-size: 0.8rem; color: var(--cyan); font-weight: 600;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tl-company { font-size: 0.82rem; color: var(--gray); margin-top: 4px; }
+  .tl-right { border-left: 2px solid var(--border); padding-left: 36px; position: relative; }
+  .tl-right::before {
+    content: '';
+    position: absolute; left: -7px; top: 6px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--cyan); border: 2px solid var(--navy);
+  }
+  .tl-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.15rem; font-weight: 700; margin-bottom: 14px;
+  }
+  .tl-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .tl-bullets li {
+    font-size: 0.88rem; color: var(--gray); line-height: 1.6;
+    padding-left: 16px; position: relative;
+  }
+  .tl-bullets li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--cyan); font-size: 0.8rem;
+  }
+
+  /* ─── TOOLS ─── */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px,1fr));
+    gap: 12px;
+  }
+  .tool-pill {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 12px;
+    text-align: center;
+    font-size: 0.85rem; font-weight: 500;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .tool-pill:hover { border-color: rgba(0,194,255,0.4); background: var(--card2); }
+  .tool-pill .t-icon { font-size: 1.5rem; margin-bottom: 6px; }
+
+  /* ─── CONTACT ─── */
+  .contact-box {
+    background: linear-gradient(135deg, rgba(26,79,191,0.2), rgba(0,194,255,0.07));
+    border: 1px solid rgba(0,194,255,0.2);
+    border-radius: 24px; padding: 60px;
+    text-align: center;
+  }
+  .contact-box h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.4rem; font-weight: 800; margin-bottom: 12px;
+  }
+  .contact-box p { color: var(--gray); margin-bottom: 32px; font-size: 1rem; }
+  .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px 24px;
+    color: var(--white); text-decoration: none; font-size: 0.9rem; font-weight: 500;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .contact-link:hover { border-color: var(--cyan); transform: translateY(-2px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: 32px 60px;
+    border-top: 1px solid var(--border);
+    font-size: 0.82rem; color: var(--gray);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* reveal on scroll */
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media(max-width:768px){
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    section { padding: 60px 24px; }
+    .stats-inner { grid-template-columns: repeat(2,1fr); padding: 0 24px; }
+    .timeline-item { grid-template-columns: 1fr; }
+    .tl-left { text-align: left; }
+    .contact-box { padding: 36px 24px; }
+    footer { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Madhav S R</div>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#aws">AWS</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="position:relative;z-index:1;">
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><span></span>Open to Opportunities</div>
+    <h1>Software<br>Quality<br><em>Analyst</em></h1>
+    <p class="hero-sub">3 years of hands-on experience in manual testing, API testing, and black-box testing. Currently pursuing AWS Cloud certification.</p>
+    <div class="hero-chips">
+      <span class="chip">Manual Testing</span>
+      <span class="chip">API Testing</span>
+      <span class="chip">Black-Box Testing</span>
+      <span class="chip green">AWS Cloud ↗</span>
+      <span class="chip amber">Agile / Scrum</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">📬 Get in Touch</a>
+      <a href="#experience" class="btn-outline">View Experience →</a>
+    </div>
+  </div>
+
+  <!-- floating card -->
+  <div class="hero-float">
+    <div class="float-stat">
+      <div class="float-num">3+</div>
+      <div class="float-label">Years Experience</div>
+    </div>
+    <div class="float-stat">
+      <div class="float-num">200+</div>
+      <div class="float-label">Test Cases Written</div>
+    </div>
+    <div class="float-stat">
+      <div class="float-num">50+</div>
+      <div class="float-label">Defects Per Project</div>
+    </div>
+    <div class="float-stat">
+      <div class="float-num">3</div>
+      <div class="float-label">Companies Served</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">3+</div>
+      <div class="stat-lbl">Years in QA</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">200+</div>
+      <div class="stat-lbl">Test Cases Created</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">50+</div>
+      <div class="stat-lbl">Defects Tracked</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">8+</div>
+      <div class="stat-lbl">AWS Services Known</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-tag reveal">Core Expertise</div>
+  <h2 class="section-title reveal">Testing <em style="font-style:normal;color:var(--cyan)">Skills</em></h2>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon" style="background:rgba(0,194,255,0.1)">🎯</div>
+      <h3>Black-Box Testing</h3>
+      <p>Thorough functional validation without internal code access — boundary value analysis, equivalence partitioning, and end-to-end workflow coverage.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Functional</span>
+        <span class="skill-tag">Regression</span>
+        <span class="skill-tag">Smoke & Sanity</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon" style="background:rgba(255,181,71,0.1)">⚡</div>
+      <h3>API Testing</h3>
+      <p>Backend validation using Postman — request/response verification, HTTP status codes (1xx–5xx), payment gateway testing, and real-time scenario execution.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Postman</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">HTTP Codes</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon" style="background:rgba(0,214,143,0.1)">🗄️</div>
+      <h3>Data Testing</h3>
+      <p>Ensuring accuracy, consistency, and integrity of application data — including ETM machine stage data, ADB logcat analysis, and structured test data management.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Data Validation</span>
+        <span class="skill-tag">ADB Logcat</span>
+        <span class="skill-tag">Test Data Mgmt</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon" style="background:rgba(26,79,191,0.2)">📱</div>
+      <h3>Mobile App Testing</h3>
+      <p>Full mobile testing lifecycle — installation, UI/UX, compatibility, and cross-device testing on Android and iOS (TestFlight staging builds).</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Android</span>
+        <span class="skill-tag">iOS / TestFlight</span>
+        <span class="skill-tag">Compatibility</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon" style="background:rgba(255,100,100,0.1)">🔄</div>
+      <h3>Agile QA</h3>
+      <p>Active participation in sprint planning, daily scrums, defect triage, and retrospectives. Mentored junior QA team members and improved test documentation.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Scrum</span>
+        <span class="skill-tag">Jira</span>
+        <span class="skill-tag">Sprint Testing</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon" style="background:rgba(150,100,255,0.1)">🖥️</div>
+      <h3>Cross-Platform Testing</h3>
+      <p>Executed tests across Windows and Linux environments, Chrome / Firefox / Edge browsers, and multiple staging environments (Staging → Pre-Prod → Production).</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Cross-Browser</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">Multi-Env</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWS -->
+<section id="aws" style="background:rgba(0,214,143,0.02);border-top:1px solid rgba(0,214,143,0.08);border-bottom:1px solid rgba(0,214,143,0.08);">
+  <div class="section-tag reveal" style="color:var(--green)">Cloud Knowledge</div>
+  <h2 class="section-title reveal">AWS <em style="font-style:normal;color:var(--green)">Services</em>
+    <span style="font-size:1rem;font-weight:400;color:var(--gray);font-family:'DM Sans',sans-serif;margin-left:14px;">Certification in Progress</span>
+  </h2>
+  <div class="aws-grid">
+    <div class="aws-card reveal">
+      <div class="aws-badge">VPC</div>
+      <h4>Virtual Private Cloud</h4>
+      <p>Designed VPCs with public & private subnets, CIDR blocks, internet gateway, and route tables for controlled connectivity.</p>
+    </div>
+    <div class="aws-card reveal">
+      <div class="aws-badge">SECURITY GROUPS</div>
+      <h4>Security Groups</h4>
+      <p>Configured inbound/outbound traffic rules on EC2 instances to manage access at the instance level.</p>
+    </div>
+    <div class="aws-card reveal">
+      <div class="aws-badge">NACL</div>
+      <h4>Network Access Control Lists</h4>
+      <p>Set up stateless subnet-level traffic filtering as an additional security boundary layer.</p>
+    </div>
+    <div class="aws-card reveal">
+      <div class="aws-badge">IAM</div>
+      <h4>Identity & Access Management</h4>
+      <p>Created IAM users and assigned least-privilege permissions; enabled MFA for secure console access.</p>
+    </div>
+    <div class="aws-card reveal">
+      <div class="aws-badge">CLOUDWATCH</div>
+      <h4>CloudWatch</h4>
+      <p>Monitoring AWS resources, setting alarms, and collecting logs for infrastructure and application observability.</p>
+    </div>
+    <div class="aws-card reveal">
+      <div class="aws-badge">CLOUDTRAIL</div>
+      <h4>CloudTrail</h4>
+      <p>Audit logging for AWS API calls to support governance, compliance, and security event analysis.</p>
+    </div>
+    <div class="aws-card reveal">
+      <div class="aws-badge">BACKUP</div>
+      <h4>Backup & Recovery</h4>
+      <p>Configured automated backup schedules using AWS Backup for data protection and recovery strategies.</p>
+    </div>
+    <div class="aws-card reveal">
+      <div class="aws-badge">VPC PEERING</div>
+      <h4>VPC Peering</h4>
+      <p>Established peering between two VPCs with non-overlapping CIDR blocks for secure cross-VPC communication.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-tag reveal">Career</div>
+  <h2 class="section-title reveal">Work <em style="font-style:normal;color:var(--cyan)">Experience</em></h2>
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+      <div class="tl-left">
+        <div class="tl-date">Nov 2024 – Dec 2025</div>
+        <div class="tl-company">Transhelp Technologies<br>TUMMOC</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-role">API & Software Quality Analyst</div>
+        <ul class="tl-bullets">
+          <li>End-to-end manual testing across Staging, Pre-Production & Production environments</li>
+          <li>iOS staging testing via TestFlight; payment gateway integration verification</li>
+          <li>Logged 50+ defects in Jira; created and executed 200+ test cases</li>
+          <li>API testing via Postman; real-time ETM machine scenario testing</li>
+          <li>Mentored junior QA members; participated in all Agile ceremonies</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-left">
+        <div class="tl-date">Jun 2024 – Oct 2024</div>
+        <div class="tl-company">Instaview Inc.</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-role">Quality Test Engineer</div>
+        <ul class="tl-bullets">
+          <li>B2B platform testing: web portal, camera firmware, Contextual AI search, COPS Monitoring</li>
+          <li>Designed and executed test cases from functional requirements and user stories</li>
+          <li>Gained firmware testing knowledge; tracked defects through full lifecycle in Jira</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-left">
+        <div class="tl-date">Jan 2023 – Apr 2024</div>
+        <div class="tl-company">KOOIndia Pvt Ltd</div>
+      </div>
+      <div class="tl-right">
+        <div class="tl-role">Test Engineer</div>
+        <ul class="tl-bullets">
+          <li>Manual test case design, execution, and review for mobile and web applications</li>
+          <li>API testing with Postman; HTTP status code analysis (1xx–5xx)</li>
+          <li>ADB logcat analysis for crash debugging and device log capture</li>
+          <li>Defect tracking in GitHub with steps to reproduce, severity, and priority</li>
+          <li>End-to-end workflow testing before production releases</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" style="background:rgba(0,194,255,0.02);border-top:1px solid var(--border);">
+  <div class="section-tag reveal">Tech Stack</div>
+  <h2 class="section-title reveal">Tools & <em style="font-style:normal;color:var(--cyan)">Technologies</em></h2>
+  <div class="tools-grid">
+    <div class="tool-pill reveal"><div class="t-icon">📮</div>Postman</div>
+    <div class="tool-pill reveal"><div class="t-icon">🐛</div>Jira</div>
+    <div class="tool-pill reveal"><div class="t-icon">✈️</div>TestFlight</div>
+    <div class="tool-pill reveal"><div class="t-icon">🤖</div>ADB Logcat</div>
+    <div class="tool-pill reveal"><div class="t-icon">🐙</div>GitHub</div>
+    <div class="tool-pill reveal"><div class="t-icon">☁️</div>AWS</div>
+    <div class="tool-pill reveal"><div class="t-icon">🌐</div>Chrome DevTools</div>
+    <div class="tool-pill reveal"><div class="t-icon">🐧</div>Linux</div>
+    <div class="tool-pill reveal"><div class="t-icon">🪟</div>Windows</div>
+    <div class="tool-pill reveal"><div class="t-icon">🔥</div>Firefox</div>
+    <div class="tool-pill reveal"><div class="t-icon">🌊</div>Edge</div>
+    <div class="tool-pill reveal"><div class="t-icon">⚡</div>Agile/Scrum</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-box reveal">
+    <h2>Let's Work Together</h2>
+    <p>Open to QA Engineer roles — manual testing, API testing, or cloud-integrated QA positions.</p>
+    <div class="contact-links">
+      <a class="contact-link" href="/cdn-cgi/l/email-protection#f69b97929e97808597989d97869a9784c6c6c1b6919b979f9ad895999b">📧 <span class="__cf_email__" data-cfemail="b2dfd3d6dad3c4c1d3dcd9d3c2ded3c0828285f2d5dfd3dbde9cd1dddf">[email&#160;protected]</span></a>
+      <a class="contact-link" href="tel:+917899845945">📞 +91 7899845945</a>
+      <a class="contact-link" href="https://linkedin.com/in/madhav-sr" target="_blank">💼 LinkedIn Profile</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Madhav S R · Software Quality Analyst · AWS Cloud Learner</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll reveal
+  const observer = new Inters
